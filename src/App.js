@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import './css/App.css';
+import { useBeat } from './hooks/useHeartbeat';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const beat = useBeat(4, (t) => {
+    console.log(`Beat size ${t}`);
+  });
+
+  useEffect(() => {
+    beat.start();
+    setTimeout(() => {
+      beat.stop();
+    }, 3000);
+  });
+
+  return <div className="App">beat</div>;
 }
 
 export default App;
