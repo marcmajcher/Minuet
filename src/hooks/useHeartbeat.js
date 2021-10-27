@@ -1,27 +1,21 @@
 import { useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
-import { pause, start } from '../lib/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateAllResources } from '../lib/resourceSlice';
 
-export function useBeat(fps, callback) {
-  const ms = 1000 / fps;
+export function useHeartbeat() {
   const dispatch = useDispatch();
-
-  const intervalRef = useRef();
-
-  function startBeat() {
-    intervalRef.current = setInterval(() => callback(ms), ms);
-    dispatch(start());
-  }
-
-  function pauseBeat() {
-    clearInterval(intervalRef.current);
-    dispatch(pause());
-  }
+  const paused = useSelector(s => s.game.paused)
+  const fps = useSelector(s => s.game.fps)
+  const ms = fps > 0 ? 1000/fps : Number.MAX_VALUE;
+  const savedCallback = useRef(() => dispatch(updateAllResources(ms)));
 
   useEffect(() => {
-    startBeat();
-    return pauseBeat()
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
-
-  return { startBeat, pauseBeat };
+    function tick() {
+      savedCallback.current(ms);
+    }
+    if (fps > 0 && !paused) {
+      let id = setInterval(tick, ms);
+      return () => clearInterval(id);
+    }
+  }, [fps, ms, paused]);
 }

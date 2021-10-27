@@ -1,0 +1,25 @@
+nav > h1 {
+  display: inline-block;
+}
+
+.orbit {
+  animation: rotation 10s infinite linear;
+  animation-play-state: paused;
+  cursor: pointer;
+  float: right;
+  height: 4rem;
+  margin-top: 2rem;
+}
+
+.spin {
+  animation-play-state: running;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
