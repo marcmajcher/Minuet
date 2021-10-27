@@ -1,34 +1,27 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { pause, start } from '../lib/actions';
 
 export function useBeat(fps, callback) {
-  const requestRef = useRef();
-  const lastTimeRef = useRef(window.performance.now());
-  const runningRef = useRef(false);
-  const tickLength = 1000 / fps;
+  const ms = 1000 / fps;
+  const dispatch = useDispatch();
 
-  console.log('Running:', runningRef.current);
+  const intervalRef = useRef();
 
-  function tick(ms) {
-    if (runningRef.current) {
-      const timeElapsed = ms - lastTimeRef.current;
-      if (timeElapsed > tickLength) {
-        lastTimeRef.current = ms - (timeElapsed % tickLength);
-        callback(timeElapsed);
-      }
-    }
-    requestRef.current = requestAnimationFrame(tick);
+  function startBeat() {
+    intervalRef.current = setInterval(() => callback(ms), ms);
+    dispatch(start());
   }
 
-  const beat = {
-    start: () => {
-      requestRef.current = requestAnimationFrame(tick);
-      runningRef.current = true;
-    },
-    pause: () => {
-      runningRef.current = false;
-    },
-    running: () => runningRef.current,
-  };
+  function pauseBeat() {
+    clearInterval(intervalRef.current);
+    dispatch(pause());
+  }
 
-  return beat;
+  useEffect(() => {
+    startBeat();
+    return pauseBeat()
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  return { startBeat, pauseBeat };
 }

@@ -15,3 +15,5 @@ export const setResoruceRate = (resource, rate) => ({
   type: 'SET_RESOURCE_RATE', resource, rate
 })
 
+export const pause = () => ({type: 'PAUSE'})
+export const start = () => ({type: 'START'})

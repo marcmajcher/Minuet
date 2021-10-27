@@ -2,26 +2,27 @@ import './css/App.css';
 import { useBeat } from './hooks/useHeartbeat';
 import Header from './Header';
 import TestResource from './TestResource';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateAllResources } from './lib/actions';
 
 function App() {
   const dispatch = useDispatch();
-  const beat = useBeat(4, (ms) => {
-    // console.log(`Beat size ${t}`);
+  const paused = useSelector((s) => s.paused);
+
+  const { startBeat, pauseBeat } = useBeat(5, (ms) => {
     dispatch(updateAllResources(ms));
   });
 
   return (
     <div className="container">
       <Header />
-      Running: {beat.running() ? 'yup!' : 'nope.'}
+      Running: {paused ? 'nope.' : 'yup!'}
       <TestResource />
-      {/* {beat.running() ? ( */}
-      <button onClick={beat.pause}>Pause</button>
-      {/* ) : ( */}
-      <button onClick={beat.start}>Start</button>
-      {/* )} */}
+      {paused ? (
+        <button onClick={startBeat}>Start</button>
+      ) : (
+        <button onClick={pauseBeat}>Pause</button>
+      )}
     </div>
   );
 }

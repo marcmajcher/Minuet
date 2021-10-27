@@ -1,7 +1,8 @@
 import { createStore } from 'redux';
-const DEBUG = false;
+const DEBUG = true;
 
 const defaultStore = {
+  paused: 'butt',
   heartBeat: undefined,
   resources: {
     dummyResource: {
@@ -16,6 +17,10 @@ function reducer(store = defaultStore, action) {
   let resources;
 
   switch (action.type) {
+    case 'PAUSE':
+      return { ...store, paused: true };
+    case 'START':
+      return { ...store, paused: false };
     case 'SET_HEARTBEAT':
       return { ...store, heartBeat: action.payload };
     case 'UPDATE_ALL_RESOURCES':
