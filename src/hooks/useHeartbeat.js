@@ -1,70 +1,34 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { setHeartbeat } from '../lib/actions';
-const RES = 100;
-const MS = 1000;
-const DEBUG = false;
+import { useRef } from 'react';
 
 export function useBeat(fps, callback) {
-  const dispatch = useDispatch();
-  const heartBeat = useSelector((s) => s.heartBeat);
+  const requestRef = useRef();
+  const lastTimeRef = useRef(window.performance.now());
+  const runningRef = useRef(false);
+  const tickLength = 1000 / fps;
 
-  if (heartBeat) {
-    return heartBeat;
-  }
+  console.log('Running:', runningRef.current);
 
-  let running;
-  let frameCount;
-  let interval;
-  let then;
-  let now;
-  let timeElapsed;
-  let startTime;
-
-  function tick(t) {
-    if (running) {
-      now = t;
-      timeElapsed = now - then;
-      if (timeElapsed > interval) {
-        then = now - (timeElapsed % interval);
-
-        const timeSinceStart = now - startTime;
-        const currentFps =
-          Math.round((MS / (timeSinceStart / ++frameCount)) * RES) / RES;
-
-        if (DEBUG) {
-          console.log(
-            `Elapsed time: ${
-              Math.round((timeSinceStart / MS) * RES) / RES
-            } secs @ ${currentFps} fps`
-          );
-        }
-
-        callback(timeElapsed, timeSinceStart, currentFps);
+  function tick(ms) {
+    if (runningRef.current) {
+      const timeElapsed = ms - lastTimeRef.current;
+      if (timeElapsed > tickLength) {
+        lastTimeRef.current = ms - (timeElapsed % tickLength);
+        callback(timeElapsed);
       }
-      requestAnimationFrame(tick);
     }
+    requestRef.current = requestAnimationFrame(tick);
   }
 
   const beat = {
-    reset: function () {
-      frameCount = 0;
-      running = false;
+    start: () => {
+      requestRef.current = requestAnimationFrame(tick);
+      runningRef.current = true;
     },
-    start: function () {
-      interval = MS / fps;
-      then = window.performance.now();
-      startTime = then;
-      running = true;
-      tick();
+    pause: () => {
+      runningRef.current = false;
     },
-    pause: function () {
-      running = false;
-    },
-    stop: function () {
-      this.reset();
-    },
+    running: () => runningRef.current,
   };
-  beat.reset();
-  dispatch(setHeartbeat(beat));
+
   return beat;
 }
