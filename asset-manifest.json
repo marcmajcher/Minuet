@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Minuet/static/css/main.afd7172b.chunk.css",
+    "main.js": "/Minuet/static/js/main.7d78cd29.chunk.js",
+    "main.js.map": "/Minuet/static/js/main.7d78cd29.chunk.js.map",
+    "runtime-main.js": "/Minuet/static/js/runtime-main.6977f23a.js",
+    "runtime-main.js.map": "/Minuet/static/js/runtime-main.6977f23a.js.map",
+    "static/js/2.0bb86c7b.chunk.js": "/Minuet/static/js/2.0bb86c7b.chunk.js",
+    "static/js/2.0bb86c7b.chunk.js.map": "/Minuet/static/js/2.0bb86c7b.chunk.js.map",
+    "index.html": "/Minuet/index.html",
+    "static/css/main.afd7172b.chunk.css.map": "/Minuet/static/css/main.afd7172b.chunk.css.map",
+    "static/js/2.0bb86c7b.chunk.js.LICENSE.txt": "/Minuet/static/js/2.0bb86c7b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6977f23a.js",
+    "static/js/2.0bb86c7b.chunk.js",
+    "static/css/main.afd7172b.chunk.css",
+    "static/js/main.7d78cd29.chunk.js"
+  ]
+}
