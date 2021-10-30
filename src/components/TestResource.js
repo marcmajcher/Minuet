@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setResourceRate } from './lib/resourceSlice';
+import { setResourceRate } from '../lib/resourceSlice';
 
 export default function TestResource() {
   const dispatch = useDispatch();

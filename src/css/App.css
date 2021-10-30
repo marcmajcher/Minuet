@@ -1,4 +1,8 @@
-nav > h1 {
+header {
+  margin-bottom: 1em;
+}
+
+header > h1 {
   display: inline-block;
 }
 
@@ -15,6 +19,18 @@ nav > h1 {
   animation-play-state: running;
 }
 
+.resource.active {
+  color: blue;
+}
+
+.resource.inactive {
+  color: grey
+}
+
+.resource.hidden {
+  display: none;
+}
+
 @keyframes rotation {
   from {
     transform: rotate(0deg);
@@ -22,4 +38,13 @@ nav > h1 {
   to {
     transform: rotate(359deg);
   }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  border-top: 1px solid black;
+  margin-top: 2em;
+  padding-top: 2em;
 }

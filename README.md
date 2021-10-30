@@ -15,3 +15,5 @@ Yeah, we're doing a generation ship thing. Super huge, like Orphans of the Sky b
 ## TODO
 
 * toggle off debug logs on production
+* save to localstorage
+
