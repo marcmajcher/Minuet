@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { start } from '../lib/gameSlice';
-import { reset } from '../lib/gameSlice';
-import strings from '../assets/strings-en';
+import { reset, log } from '../lib/gameSlice';
+import strings, { printString } from '../assets/strings-en';
 
 export default function Decant() {
   const dispatch = useDispatch();
@@ -11,6 +11,14 @@ export default function Decant() {
         onClick={() => {
           dispatch(reset());
           dispatch(start());
+          dispatch(
+            log(
+              printString('msg_decant', {
+                colonist: '0001',
+                stability: 'unstable',
+              })
+            )
+          );
         }}
       >
         {strings.btn_decant}
