@@ -16,8 +16,15 @@ export const counterSlice = createSlice({
       const { resource, rate } = action.payload;
       state[resource].rate = rate;
     },
+    reset: (state) => {
+      Object.entries(initialState).forEach(([key, val]) => {
+        console.log('K', key, 'V', val);
+        state[key] = val;
+      });
+    },
   },
 });
 
-export const { updateAllResources, setResourceRate } = counterSlice.actions;
+export const { updateAllResources, setResourceRate, reest } =
+  counterSlice.actions;
 export default counterSlice.reducer;

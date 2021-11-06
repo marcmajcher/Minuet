@@ -48,3 +48,17 @@ footer {
   margin-top: 2em;
   padding-top: 2em;
 }
+
+.main-page {
+  display: grid;
+  grid-template-columns: 40% 40% 20%;
+  grid-template-areas: "resources . log"
+}
+
+.resource-list {
+  grid-area: resources;
+}
+
+.log-entries {
+grid-area: log;
+}

@@ -4,6 +4,7 @@ const initialState = {
   debug: false,
   fps: 5,
   gameState: 'decant',
+  logEntries: ['--------'],
   paused: true,
 };
 
@@ -31,9 +32,12 @@ export const gameSlice = createSlice({
       state.gameState = 'phase1';
       state.paused = false;
     },
+    log: (state, action) => {
+      state.logEntries.push(action.payload);
+    },
   },
 });
 
-export const { pause, unpause, debug, setFPS, reset, start } =
+export const { pause, unpause, debug, setFPS, reset, start, log } =
   gameSlice.actions;
 export default gameSlice.reducer;
