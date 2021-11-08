@@ -8,6 +8,7 @@ const initialState = {
   paused: true,
   frozen: true,
   decants: 0,
+  colonistId: -1,
 };
 
 export const gameSlice = createSlice({
@@ -26,7 +27,7 @@ export const gameSlice = createSlice({
     setFPS: (state, action) => {
       state.fps = action.payload;
     },
-    reset: (state) => {
+    freeze: (state) => {
       state.paused = true;
       state.frozen = true;
     },
@@ -34,25 +35,38 @@ export const gameSlice = createSlice({
       state.paused = false;
       state.frozen = false;
     },
-    log: (state, action) => {
+    log: (state, { payload }) => {
       let message;
-      if (typeof action.payload === 'object') {
-        message = printString(action.payload);
-      } else if (strings[action.payload]) {
-        message = strings[action.payload];
+      if (typeof payload === 'object') {
+        message = printString(payload);
+      } else if (strings[payload]) {
+        message = strings[payload];
       } else {
-        message = action.payload;
+        message = payload;
       }
       state.logEntries.push(message);
+      console.log('[LOG]', message);
     },
     decant: (state) => {
       state.paused = false;
       state.frozen = false;
       state.decants += 1;
     },
+    setColonistId: (state, { payload }) => {
+      state.colonistId = payload;
+    },
   },
 });
 
-export const { pause, unpause, debug, setFPS, reset, start, log, decant } =
-  gameSlice.actions;
+export const {
+  pause,
+  unpause,
+  debug,
+  setFPS,
+  freeze,
+  start,
+  log,
+  decant,
+  setColonistId,
+} = gameSlice.actions;
 export default gameSlice.reducer;

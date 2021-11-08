@@ -9,10 +9,8 @@ export const resourceSlice = createSlice({
       const seconds = action.payload / 1000;
       Object.entries(state).forEach(([resource, data]) => {
         if (data.rate !== 0) {
-          const newAmount = Math.max(
-            state[resource].amount + data.rate * seconds,
-            0
-          );
+          // prettier-ignore
+          const newAmount = Math.max(state[resource].amount + data.rate * seconds, 0);
           state[resource].amount = Math.min(newAmount, state[resource].max);
         }
       });
@@ -24,7 +22,7 @@ export const resourceSlice = createSlice({
     showResource: (state, action) => {
       state[action.payload].state = 'active';
     },
-    defaultResrouces: (state) => {
+    setDefaultResources: (state) => {
       Object.entries(initialState).forEach(([key, val]) => {
         state[key] = val;
       });
@@ -32,6 +30,10 @@ export const resourceSlice = createSlice({
   },
 });
 
-export const { updateAllResources, setResourceRate, defaultResrouces, showResource } =
-  resourceSlice.actions;
+export const {
+  updateAllResources,
+  setResourceRate,
+  setDefaultResources,
+  showResource,
+} = resourceSlice.actions;
 export default resourceSlice.reducer;

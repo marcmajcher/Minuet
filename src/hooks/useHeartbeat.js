@@ -13,17 +13,16 @@ export function useHeartbeat() {
   const ms = fps > 0 ? 1000 / fps : Number.MAX_VALUE;
   const savedCallback = useRef(() => {
     dispatch(updateAllResources(ms));
-    dispatch(warmCooldowns(ms))
+    dispatch(warmCooldowns(ms));
   });
 
   useEffect(() => {
-    function tick() {
-      savedCallback.current(ms);
-      events(resources)
-    }
     if (fps > 0 && !paused) {
-      let id = setInterval(tick, ms);
+      const id = setInterval(() => {
+        savedCallback.current(ms);
+        events(resources);
+      }, ms);
       return () => clearInterval(id);
     }
-  }, [fps, ms, paused, events, resources]);
+  }, [fps, ms, paused, resources]); // eslint-disable-line react-hooks/exhaustive-deps
 }

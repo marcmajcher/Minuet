@@ -1,8 +1,9 @@
 const defaultData = {
   available_biomass: {
     amount: 0,
-    rate: 0,
-    max: 200,
+    decay: 0.5,
+    generate_min: 60,
+    generate_max: 90,
   },
   cool_explore: {
     type: 'cooldown',

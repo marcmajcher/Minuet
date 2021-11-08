@@ -5,8 +5,9 @@ const strings = {
   btn_save: 'Save',
   msg_log_start: '[LOG] Begin Messages',
   msg_decant:
-    '[SYSTEM] colonist {colonist} released from cryosleep :: {stability}',
+    '[SYS] colonist {colonist} released from cryosleep :: instability {stability}',
   msg_no_resources: '[RESOURCES UNAVAILABLE]',
+  msg_colonist_expired: '[SYS] colonist {colonist} expired :: unviable',
   res_stability: 'Stability',
   res_experience: 'Experience',
   res_biomass: 'Biomass',

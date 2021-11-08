@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { rollBetween } from '../hooks/useRandom';
 import initialState from './defaultData';
 
 export const dataSlice = createSlice({
@@ -16,8 +17,24 @@ export const dataSlice = createSlice({
     startCooldown: (state, { payload }) => {
       state[payload].seconds = state[payload].max;
     },
+    addColonistBiomass: (state, { payload }) => {
+      state.available_biomass.amount += rollBetween(
+        state.available_biomass.generate_min,
+        state.available_biomass.generate_max,
+        payload || 1
+      );
+    },
+    decayBiomass: (state) => {
+      state.available_biomass.amount -=
+        state.available_biomass.amount * state.available_biomass.decay;
+    },
   },
 });
 
-export const { warmCooldowns, startCooldown } = dataSlice.actions;
+export const {
+  warmCooldowns,
+  startCooldown,
+  addColonistBiomass,
+  decayBiomass,
+} = dataSlice.actions;
 export default dataSlice.reducer;
