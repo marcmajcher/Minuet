@@ -10,7 +10,7 @@ An incremental game about.... ???
 
 ## Roadmap
 
-Yeah, we're doing a generation ship thing. Super huge, like Orphans of the Sky big.
+Yeah, we're doing a generation/colony ship thing.
 
 ## TODO
 
@@ -21,3 +21,13 @@ Yeah, we're doing a generation ship thing. Super huge, like Orphans of the Sky b
 * figure out why *everything* rerenders on heartbeat
 * color code resources and logs
 * load and use themes
+* figure out good event/action architecture
+* Format resources as table
+* hook up sass
+* reset game data action
+* cancel cooldowns on freeze
+* add parameter to save X log messages
+* categorize log messages
+
+
+

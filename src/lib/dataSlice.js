@@ -6,6 +6,9 @@ export const dataSlice = createSlice({
   name: 'data',
   initialState,
   reducers: {
+    resetGame: (state) => {
+      console.log('TK reset game data');
+    },
     warmCooldowns: (state, { payload }) => {
       Object.entries(state).forEach(([key, data]) => {
         const ms = payload / 1000;
@@ -28,6 +31,18 @@ export const dataSlice = createSlice({
       state.available_biomass.amount -=
         state.available_biomass.amount * state.available_biomass.decay;
     },
+
+    shiftActionMessage: (state, { payload }) => {
+      if (state[payload].active) {
+        state[payload].messages.splice(0, 1);
+        if (state[payload].messages.length < 1) {
+          state[payload].active = false;
+        }
+      }
+    },
+    incrementActionMessage: (state, { payload }) => {
+      state[payload].count += 1;
+    },
   },
 });
 
@@ -36,5 +51,7 @@ export const {
   startCooldown,
   addColonistBiomass,
   decayBiomass,
+  shiftActionMessage,
+  incrementActionMessage,
 } = dataSlice.actions;
 export default dataSlice.reducer;

@@ -5,7 +5,7 @@ export default function Log() {
 
   return (
     <div className="log-entries">
-      {entries && entries.map((entry) => (
+      {entries && entries.slice().reverse().map((entry) => (
         <p key={Math.random()}>{entry}</p>
       ))}
     </div>
