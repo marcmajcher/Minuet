@@ -7,6 +7,8 @@ export default function useEvents() {
   const colonistId = useSelector((s) => s.game.colonistId);
 
   return (resources) => {
+
+    // Check if colonist has destabilized and died - freeze/cleanup, and add/decay biomass
     if (resources.stability.amount <= 0) {
       dispatch(freeze());
       dispatch(log({ template: 'msg_colonist_expired', colonist: colonistId }));

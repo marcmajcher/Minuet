@@ -15,6 +15,11 @@ export const resourceSlice = createSlice({
         }
       });
     },
+    addResource: (state, action) => {
+      const { resource, amount } = action.payload;
+      console.log(resource, amount);
+      state[resource].amount += amount;
+    },
     setResourceRate: (state, action) => {
       const { resource, rate } = action.payload;
       state[resource].rate = rate;
@@ -35,5 +40,6 @@ export const {
   setResourceRate,
   setDefaultResources,
   showResource,
+  addResource,
 } = resourceSlice.actions;
 export default resourceSlice.reducer;
