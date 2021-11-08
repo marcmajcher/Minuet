@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import Resource from './Resource';
+import strings from '../assets/strings-en';
 
 export default function ResourceList({ resources }) {
   const numDecants = useSelector((s) => s.game.decants);
@@ -9,7 +10,7 @@ export default function ResourceList({ resources }) {
         ? resources.map((resource) => (
             <Resource resource={resource} key={resource.id} />
           ))
-        : '[RESOURCES UNAVAILABLE]'}
+        : strings.msg_no_resources}
     </div>
   );
 }
