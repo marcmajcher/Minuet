@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/Minuet/static/css/main.0a64c888.chunk.css",
-    "main.js": "/Minuet/static/js/main.c90c7c8d.chunk.js",
-    "main.js.map": "/Minuet/static/js/main.c90c7c8d.chunk.js.map",
+    "main.css": "/Minuet/static/css/main.8397e3b3.chunk.css",
+    "main.js": "/Minuet/static/js/main.cb396619.chunk.js",
+    "main.js.map": "/Minuet/static/js/main.cb396619.chunk.js.map",
     "runtime-main.js": "/Minuet/static/js/runtime-main.6977f23a.js",
     "runtime-main.js.map": "/Minuet/static/js/runtime-main.6977f23a.js.map",
-    "static/js/2.a20082c0.chunk.js": "/Minuet/static/js/2.a20082c0.chunk.js",
-    "static/js/2.a20082c0.chunk.js.map": "/Minuet/static/js/2.a20082c0.chunk.js.map",
+    "static/js/2.e7d9a73b.chunk.js": "/Minuet/static/js/2.e7d9a73b.chunk.js",
+    "static/js/2.e7d9a73b.chunk.js.map": "/Minuet/static/js/2.e7d9a73b.chunk.js.map",
     "index.html": "/Minuet/index.html",
-    "static/css/main.0a64c888.chunk.css.map": "/Minuet/static/css/main.0a64c888.chunk.css.map",
-    "static/js/2.a20082c0.chunk.js.LICENSE.txt": "/Minuet/static/js/2.a20082c0.chunk.js.LICENSE.txt",
+    "static/css/main.8397e3b3.chunk.css.map": "/Minuet/static/css/main.8397e3b3.chunk.css.map",
+    "static/js/2.e7d9a73b.chunk.js.LICENSE.txt": "/Minuet/static/js/2.e7d9a73b.chunk.js.LICENSE.txt",
     "static/media/orbital.391d4365.svg": "/Minuet/static/media/orbital.391d4365.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.6977f23a.js",
-    "static/js/2.a20082c0.chunk.js",
-    "static/css/main.0a64c888.chunk.css",
-    "static/js/main.c90c7c8d.chunk.js"
+    "static/js/2.e7d9a73b.chunk.js",
+    "static/css/main.8397e3b3.chunk.css",
+    "static/js/main.cb396619.chunk.js"
   ]
 }
