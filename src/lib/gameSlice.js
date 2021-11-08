@@ -36,7 +36,6 @@ export const gameSlice = createSlice({
     },
     log: (state, action) => {
       let message;
-      console.log(action.payload)
       if (typeof action.payload === 'object') {
         message = printString(action.payload);
       } else if (strings[action.payload]) {

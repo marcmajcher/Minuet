@@ -8,6 +8,7 @@ export default function DecantButton() {
   const stability = useSelector((s) => s.resources.stability.rate);
   return (
     <button
+      className="button-primary"
       onClick={() => {
         dispatch(defaultResrouces);
         dispatch(decant());

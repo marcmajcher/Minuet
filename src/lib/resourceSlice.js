@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import initialState from './defaultResources';
 
-export const counterSlice = createSlice({
+export const resourceSlice = createSlice({
   name: 'resources',
   initialState,
   reducers: {
@@ -33,5 +33,5 @@ export const counterSlice = createSlice({
 });
 
 export const { updateAllResources, setResourceRate, defaultResrouces, showResource } =
-  counterSlice.actions;
-export default counterSlice.reducer;
+  resourceSlice.actions;
+export default resourceSlice.reducer;

@@ -26,15 +26,6 @@ const defaultResources = {
     type: 'common',
     state: 'hidden',
   },
-  available_biomass: { 
-    id: -4,
-    name: undefined,
-    amount: 0,
-    rate: 0,
-    max: 200,
-    type: 'system',
-    state: 'hidden',
-  },
   egregore: {
     id: 20,
     name: 'res_egregore',

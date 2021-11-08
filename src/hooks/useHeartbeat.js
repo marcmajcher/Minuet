@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { warmCooldowns } from '../lib/dataSlice';
 import { updateAllResources } from '../lib/resourceSlice';
 import useEvents from './useEvents';
 
@@ -12,6 +13,7 @@ export function useHeartbeat() {
   const ms = fps > 0 ? 1000 / fps : Number.MAX_VALUE;
   const savedCallback = useRef(() => {
     dispatch(updateAllResources(ms));
+    dispatch(warmCooldowns(ms))
   });
 
   useEffect(() => {
