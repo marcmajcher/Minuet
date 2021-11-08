@@ -5,6 +5,7 @@ import orbit from '../assets/orbital.svg';
 export default function Header() {
   const dispatch = useDispatch();
   const paused = useSelector((s) => s.game.paused);
+  const frozen = useSelector((s) => s.game.frozen);
 
   return (
     <header>
@@ -13,7 +14,11 @@ export default function Header() {
         className={paused ? 'orbit' : 'orbit spin'}
         src={orbit}
         alt="orbit logo"
-        onClick={paused ? () => dispatch(unpause()) : () => dispatch(pause())}
+        onClick={
+          paused && !frozen
+            ? () => dispatch(unpause())
+            : () => dispatch(pause())
+        }
       />
     </header>
   );

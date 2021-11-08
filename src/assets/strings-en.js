@@ -2,6 +2,7 @@ const strings = {
   btn_clear: 'Clear',
   btn_decant: 'Decant',
   btn_save: 'Save',
+  msg_log_start: '[LOG] Begin Messages',
   msg_decant:
     '[SYSTEM] colonist {colonist} released from cryosleep - {stability}',
   res_stability: 'Stability',

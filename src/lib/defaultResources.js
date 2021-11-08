@@ -4,7 +4,7 @@ const defaultResources = {
     name: 'res_stability',
     amount: 100,
     rate: -1.67,
-    max: 1000,
+    max: 100,
     type: 'common',
     state: 'active',
   },

@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import strings from '../assets/strings-en';
 
 const initialState = {
   debug: false,
   fps: 5,
-  gameState: 'decant',
-  logEntries: ['--------'],
+  logEntries: [strings.msg_log_start],
   paused: true,
+  frozen: true,
 };
 
 export const gameSlice = createSlice({
@@ -25,12 +26,12 @@ export const gameSlice = createSlice({
       state.fps = action.payload;
     },
     reset: (state) => {
-      state.gameState = 'decant';
       state.paused = true;
+      state.frozen = true;
     },
     start: (state) => {
-      state.gameState = 'phase1';
       state.paused = false;
+      state.frozen = false;
     },
     log: (state, action) => {
       state.logEntries.push(action.payload);
