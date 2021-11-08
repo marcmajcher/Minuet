@@ -6,7 +6,7 @@ const defaultResources = {
     rate: -1.67,
     max: 100,
     type: 'common',
-    state: 'active',
+    state: 'hidden',
   },
   xp: {
     id: 3,
@@ -24,6 +24,15 @@ const defaultResources = {
     rate: 0,
     max: 200,
     type: 'common',
+    state: 'hidden',
+  },
+  available_biomass: { 
+    id: -4,
+    name: undefined,
+    amount: 0,
+    rate: 0,
+    max: 200,
+    type: 'system',
     state: 'hidden',
   },
   egregore: {

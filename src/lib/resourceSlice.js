@@ -6,20 +6,25 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     updateAllResources: (state, action) => {
+      const seconds = action.payload / 1000;
       Object.entries(state).forEach(([resource, data]) => {
-        const newAmount =
-          state[resource].amount + (data.rate * action.payload) / 1000;
-        state[resource].amount = Math.max(
-          Math.min(newAmount, state[resource].max),
-          0
-        );
+        if (data.rate !== 0) {
+          const newAmount = Math.max(
+            state[resource].amount + data.rate * seconds,
+            0
+          );
+          state[resource].amount = Math.min(newAmount, state[resource].max);
+        }
       });
     },
     setResourceRate: (state, action) => {
       const { resource, rate } = action.payload;
       state[resource].rate = rate;
     },
-    reset: (state) => {
+    showResource: (state, action) => {
+      state[action.payload].state = 'active';
+    },
+    defaultResrouces: (state) => {
       Object.entries(initialState).forEach(([key, val]) => {
         state[key] = val;
       });
@@ -27,6 +32,6 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { updateAllResources, setResourceRate, reest } =
+export const { updateAllResources, setResourceRate, defaultResrouces, showResource } =
   counterSlice.actions;
 export default counterSlice.reducer;

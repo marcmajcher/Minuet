@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import strings from '../assets/strings-en';
+import strings, { printString } from '../assets/strings-en';
 
 const initialState = {
   debug: false,
@@ -7,6 +7,7 @@ const initialState = {
   logEntries: [strings.msg_log_start],
   paused: true,
   frozen: true,
+  decants: 0,
 };
 
 export const gameSlice = createSlice({
@@ -34,11 +35,24 @@ export const gameSlice = createSlice({
       state.frozen = false;
     },
     log: (state, action) => {
-      state.logEntries.push(action.payload);
+      let message;
+      if (typeof action.payload === 'object') {
+        message = printString(action.payload);
+      } else if (strings[action.payload]) {
+        message = strings[action.payload];
+      } else {
+        message = action.payload;
+      }
+      state.logEntries.push(message);
+    },
+    decant: (state) => {
+      state.paused = false;
+      state.frozen = false;
+      state.decants += 1;
     },
   },
 });
 
-export const { pause, unpause, debug, setFPS, reset, start, log } =
+export const { pause, unpause, debug, setFPS, reset, start, log, decant } =
   gameSlice.actions;
 export default gameSlice.reducer;

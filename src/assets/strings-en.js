@@ -4,19 +4,17 @@ const strings = {
   btn_save: 'Save',
   msg_log_start: '[LOG] Begin Messages',
   msg_decant:
-    '[SYSTEM] colonist {colonist} released from cryosleep - {stability}',
+    '[SYSTEM] colonist {colonist} released from cryosleep :: {stability}',
   res_stability: 'Stability',
   res_experience: 'Experience',
   res_biomass: 'Biomass',
   res_egregore: 'Egregore',
 };
 
-export function printString(key, args) {
-  let string = strings[key];
-  if (args) {
-    for (const val in args) {
-      string = string.replace(`{${val}}`, args[val]);
-    }
+export function printString(options) {
+  let string = strings[options.template];
+  for (const key in options) {
+    string = string.replace(`{${key}}`, options[key]);
   }
   return string;
 }

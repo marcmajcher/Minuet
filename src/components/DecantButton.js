@@ -1,22 +1,23 @@
-import { useDispatch } from 'react-redux';
-import { start } from '../lib/gameSlice';
-import { reset, log } from '../lib/gameSlice';
-import strings, { printString } from '../assets/strings-en';
+import { useDispatch, useSelector } from 'react-redux';
+import { log, decant } from '../lib/gameSlice';
+import strings from '../assets/strings-en';
+import { defaultResrouces, showResource } from '../lib/resourceSlice';
 
 export default function DecantButton() {
   const dispatch = useDispatch();
+  const stability = useSelector((s) => s.resources.stability.rate);
   return (
     <button
       onClick={() => {
-        dispatch(reset());
-        dispatch(start());
+        dispatch(defaultResrouces);
+        dispatch(decant());
+        dispatch(showResource('stability'));
         dispatch(
-          log(
-            printString('msg_decant', {
-              colonist: '0001',
-              stability: 'unstable',
-            })
-          )
+          log({
+            template: 'msg_decant',
+            colonist: Date.now().toString().substr(-8),
+            stability: stability < 0 ? 'unstable' : 'stable',
+          })
         );
       }}
     >
