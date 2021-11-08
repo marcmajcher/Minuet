@@ -5,6 +5,7 @@ import { freeze, log } from '../lib/gameSlice';
 export default function useEvents() {
   const dispatch = useDispatch();
   const colonistId = useSelector((s) => s.game.colonistId);
+  // const biomass = useSelector(s => s.resources.biomass.amount)
 
   return (resources) => {
 

@@ -19,4 +19,5 @@ Yeah, we're doing a generation ship thing. Super huge, like Orphans of the Sky b
 * move string language to gamestate, import in printString
 * disallow unpause when game not started
 * figure out why *everything* rerenders on heartbeat
-
+* color code resources and logs
+* load and use themes

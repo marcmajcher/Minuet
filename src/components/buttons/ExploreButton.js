@@ -9,11 +9,10 @@ export default function ExploreButton() {
   const dispatch = useDispatch();
 
   function handleExplore() {
-    dispatch(log('Exploring....'));
+    dispatch(log('Exploring....TK'));
     dispatch(addResource({ resource: 'xp', amount: 1 }));
     if (experience.state === 'hidden') {
       dispatch(showResource('xp'));
-
     }
   }
 
