@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { log, decant } from '../lib/gameSlice';
-import strings from '../assets/strings-en';
-import { defaultResrouces, showResource } from '../lib/resourceSlice';
+import { log, decant } from '../../lib/gameSlice';
+import strings from '../../assets/strings-en';
+import { defaultResrouces, showResource } from '../../lib/resourceSlice';
 
 export default function DecantButton() {
   const dispatch = useDispatch();

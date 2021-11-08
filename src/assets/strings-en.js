@@ -1,6 +1,7 @@
 const strings = {
   btn_clear: 'Clear',
   btn_decant: 'Decant',
+  btn_explore: 'Explore',
   btn_save: 'Save',
   msg_log_start: '[LOG] Begin Messages',
   msg_decant:
