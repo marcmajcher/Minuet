@@ -28,6 +28,6 @@ Yeah, we're doing a generation/colony ship thing.
 * cancel cooldowns on freeze
 * add parameter to save X log messages
 * categorize log messages
-
+* responsive page grid
 
 

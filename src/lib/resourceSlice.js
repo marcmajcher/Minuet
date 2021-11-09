@@ -18,6 +18,7 @@ export const resourceSlice = createSlice({
     addResource: (state, action) => {
       const { resource, amount } = action.payload;
       state[resource].amount += amount;
+      state[resource].state = 'active';
     },
     setResourceRate: (state, action) => {
       const { resource, rate } = action.payload;

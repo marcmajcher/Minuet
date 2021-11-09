@@ -4,6 +4,10 @@ const strings = {
   btn_explore: 'Explore',
   btn_save: 'Save',
 
+  desc_biomass: '',
+  desc_wire: '',
+  desc_scrap: '',
+  
   msg_no_resources: '[RESOURCES UNAVAILABLE]',
   msg_log_start: '[LOG] Begin Messages',
 

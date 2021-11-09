@@ -21,8 +21,8 @@ button {
 }
 
 button:disabled,
-button[disabled]{
- cursor:default;
+button[disabled] {
+  cursor: default;
   border: 1px solid #999999;
   background-color: transparent;
   color: #666666;
@@ -76,7 +76,7 @@ button.cooldown {
 }
 
 .resource.inactive {
-  color: grey
+  color: grey;
 }
 
 .resource.hidden {
@@ -104,15 +104,17 @@ footer {
 .main-page {
   display: grid;
   grid-template-columns: 25% 55% 20%;
-  grid-template-areas: "resources . log"
+  grid-template-areas: 'resources . log';
 }
 
 .resource-list {
   grid-area: resources;
+  min-width: 235px;
 }
 
 .log-entries {
-grid-area: log;
+  grid-area: log;
+  min-width: 235px;
 }
 
 .log-entries > p {

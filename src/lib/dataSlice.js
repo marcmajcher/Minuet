@@ -43,6 +43,11 @@ export const dataSlice = createSlice({
     incrementActionMessage: (state, { payload }) => {
       state[payload].count += 1;
     },
+
+    removeFirstResourceMessage: (state, { payload }) => {
+      console.log(payload, state[payload], state[payload.first])
+      delete state[payload].first;
+    },
   },
 });
 
@@ -53,5 +58,6 @@ export const {
   decayBiomass,
   shiftActionMessage,
   incrementActionMessage,
+  removeFirstResourceMessage,
 } = dataSlice.actions;
 export default dataSlice.reducer;
