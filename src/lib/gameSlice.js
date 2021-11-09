@@ -4,7 +4,8 @@ import strings, { printString } from '../assets/strings-en';
 const initialState = {
   debug: false,
   fps: 5,
-  logEntries: [strings.msg_log_start],
+  logEntries: [{ id: 0, text: strings.msg_log_start, type: 'gameop' }],
+  logIdCounter: 1,
   paused: true,
   frozen: true,
   decants: 0,
@@ -45,7 +46,12 @@ export const gameSlice = createSlice({
         message = payload;
       }
       if (message) {
-        state.logEntries.push(message);
+        state.logEntries.push({
+          text: message,
+          id: state.logIdCounter,
+          type: payload.type || 'foo',
+        });
+        state.logIdCounter += 1;
         if (process.env.NODE_ENV === 'development') {
           console.log('[LOG]', message);
         }

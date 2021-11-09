@@ -21,6 +21,7 @@ export default function DecantButton() {
         dispatch(
           log({
             template: 'msg_decant',
+            type: 'system',
             colonist: colonistId,
             stability: stability < 0 ? 'HIGH' : 'none',
           })

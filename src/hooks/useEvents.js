@@ -8,11 +8,16 @@ export default function useEvents() {
   // const biomass = useSelector(s => s.resources.biomass.amount)
 
   return (resources) => {
-
     // Check if colonist has destabilized and died - freeze/cleanup, and add/decay biomass
     if (resources.stability.amount <= 0) {
       dispatch(freeze());
-      dispatch(log({ template: 'msg_colonist_expired', colonist: colonistId }));
+      dispatch(
+        log({
+          template: 'msg_colonist_expired',
+          colonist: colonistId,
+          type: 'system',
+        })
+      );
       dispatch(addColonistBiomass());
       dispatch(decayBiomass());
     }
