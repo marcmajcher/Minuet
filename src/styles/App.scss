@@ -8,6 +8,13 @@ h1 {
   font-weight: 700;
 }
 
+h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #336;
+  margin-bottom: 4px;
+}
+
 header {
   margin-bottom: 1em;
 
@@ -71,18 +78,6 @@ button[disabled] {
   animation-play-state: running;
 }
 
-.resource.active {
-  color: blue;
-}
-
-.resource.inactive {
-  color: grey;
-}
-
-.resource.hidden {
-  display: none;
-}
-
 @keyframes rotation {
   from {
     transform: rotate(0deg);
@@ -110,12 +105,44 @@ footer {
 .resource-list {
   grid-area: resources;
   min-width: 235px;
+
+  section {
+    margin-bottom: 3rem;
+
+    .resource {
+      &.active {
+        color: blue;
+      }
+      &.inactive {
+        color: grey;
+      }
+      &.hidden {
+        display: none;
+      }
+
+      display: grid;
+      grid-template-columns: 30% 30% 40%;
+      grid-template-areas: 'name amount rate';
+
+      .resource-name {
+        font-weight: 700;
+        grid-area: name;
+      }
+      .resource-amount {
+        grid-area: amount;
+      }
+      .resource-rate {
+        grid-area: rate;
+      }
+    }
+  }
 }
 
 .log-entries {
   grid-area: log;
   min-width: 235px;
-  & > p {
+
+  p {
     margin: 0;
     padding-bottom: 3px;
     margin-bottom: 3px;

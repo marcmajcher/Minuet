@@ -1,5 +1,7 @@
 const strings = {
   and: 'and',
+  resources: 'Resources',
+  storage_closet: 'Storage Closet',
   you_find: 'You find {items}',
 
   btn_clear: 'Clear',
@@ -10,8 +12,8 @@ const strings = {
   desc_biomass: 'some unrecognizable biological material',
   desc_wire: 'a length of scaveneged wire',
   desc_scrap: 'a few pieces of scrap metal',
-  
-  msg_no_resources: '[RESOURCES UNAVAILABLE]',
+
+  msg_no_resources: '<<UNAVAILABLE>>',
   msg_log_start: '[LOG] Begin Messages',
 
   msg_decant:

@@ -5,8 +5,13 @@ export default function Resource({ resource }) {
 
   return (
     <div className={`resource ${state} ${type}`}>
-      <strong>{strings[name]}:</strong> {amount.toFixed(2)}/{max}{' '}
-      {rate !== 0 ? `(${rate.toFixed(2)}/sec)` : ''}
+      <span className="resource-name">{strings[name]}:</span>{' '}
+      <span className="resource-amount">
+        {amount.toFixed(2)}/{max}
+      </span>{' '}
+      <span className="resource-rate">
+        {rate !== 0 ? `(${rate.toFixed(2)}/sec)` : ''}
+      </span>
     </div>
   );
 }
