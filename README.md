@@ -14,7 +14,6 @@ Yeah, we're doing a generation/colony ship thing.
 
 ## TODO
 
-* toggle off debug logs on production
 * save to localstorage
 * move string language to gamestate, import in printString
 * disallow unpause when game not started
@@ -25,7 +24,6 @@ Yeah, we're doing a generation/colony ship thing.
 * Format resources as table
 * hook up sass
 * reset game data action
-* cancel cooldowns on freeze
 * add parameter to save X log messages
 * categorize log messages
 * responsive page grid

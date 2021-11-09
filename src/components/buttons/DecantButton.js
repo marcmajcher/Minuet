@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { log, decant, setColonistId } from '../../lib/gameSlice';
 import { setDefaultResources, showResource } from '../../lib/resourceSlice';
 import strings from '../../assets/strings-en';
+import { resetCooldowns } from '../../lib/dataSlice';
 
 export default function DecantButton() {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ export default function DecantButton() {
       className="button-primary"
       onClick={() => {
         dispatch(setDefaultResources());
+        dispatch(resetCooldowns());
         dispatch(decant());
         dispatch(showResource('stability'));
         dispatch(setColonistId(colonistId));

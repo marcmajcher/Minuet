@@ -46,7 +46,9 @@ export const gameSlice = createSlice({
       }
       if (message) {
         state.logEntries.push(message);
-        // console.log('[LOG]', message);
+        if (process.env.NODE_ENV === 'development') {
+          console.log('[LOG]', message);
+        }
       }
     },
     decant: (state) => {
