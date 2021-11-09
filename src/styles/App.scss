@@ -10,14 +10,23 @@ h1 {
 
 header {
   margin-bottom: 1em;
-}
 
-header > h1 {
-  display: inline-block;
+  & > h1 {
+    display: inline-block;
+  }
 }
 
 button {
   border-radius: 0;
+
+  &.cooldown {
+    width: 15rem;
+    height: 3.8rem;
+    top: 0;
+    left: 0;
+    position: absolute;
+    border-color: #666;
+  }
 }
 
 button:disabled,
@@ -26,15 +35,6 @@ button[disabled] {
   border: 1px solid #999999;
   background-color: transparent;
   color: #666666;
-}
-
-button.cooldown {
-  width: 15rem;
-  height: 3.8rem;
-  top: 0;
-  left: 0;
-  position: absolute;
-  border-color: #666;
 }
 
 .btn-cooldown {
@@ -115,20 +115,19 @@ footer {
 .log-entries {
   grid-area: log;
   min-width: 235px;
-}
+  & > p {
+    margin: 0;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+    border-bottom: 1px solid #ccc;
 
-.log-entries > p {
-  margin: 0;
-  padding-bottom: 3px;
-  margin-bottom: 3px;
-  border-bottom: 1px solid #ccc;
-}
+    &.gameop {
+      font-weight: 700;
+      color: #333;
+    }
 
-.log-entries > p.gameop {
-  font-weight: 700;
-  color: #333;
-}
-
-.log-entries > p.system {
-  color: #669;
+    &.system {
+      color: #669;
+    }
+  }
 }

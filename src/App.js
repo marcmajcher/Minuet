@@ -1,4 +1,4 @@
-import './css/App.css';
+import './styles/App.scss';
 import { useHeartbeat } from './hooks/useHeartbeat';
 import MainPage from './components/MainPage';
 import Header from './components/Header';

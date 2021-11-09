@@ -10,6 +10,7 @@ const initialState = {
   frozen: true,
   decants: 0,
   colonistId: -1,
+  logLength: 100,
 };
 
 export const gameSlice = createSlice({
@@ -51,6 +52,10 @@ export const gameSlice = createSlice({
           id: state.logIdCounter,
           type: payload.type || 'foo',
         });
+        if (state.logEntries.length > state.logLength) {
+          state.logEntries.splice(0, state.logEntries.length - state.logLength);
+        }
+
         state.logIdCounter += 1;
         if (process.env.NODE_ENV === 'development') {
           console.log('[LOG]', message);
