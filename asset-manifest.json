@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Minuet/static/css/main.71eb8b9f.chunk.css",
-    "main.js": "/Minuet/static/js/main.f173a9d2.chunk.js",
-    "main.js.map": "/Minuet/static/js/main.f173a9d2.chunk.js.map",
+    "main.js": "/Minuet/static/js/main.e227ac71.chunk.js",
+    "main.js.map": "/Minuet/static/js/main.e227ac71.chunk.js.map",
     "runtime-main.js": "/Minuet/static/js/runtime-main.6977f23a.js",
     "runtime-main.js.map": "/Minuet/static/js/runtime-main.6977f23a.js.map",
     "static/js/2.e7d9a73b.chunk.js": "/Minuet/static/js/2.e7d9a73b.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.6977f23a.js",
     "static/js/2.e7d9a73b.chunk.js",
     "static/css/main.71eb8b9f.chunk.css",
-    "static/js/main.f173a9d2.chunk.js"
+    "static/js/main.e227ac71.chunk.js"
   ]
 }
