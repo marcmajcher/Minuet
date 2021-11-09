@@ -11,7 +11,7 @@ const defaultData = {
     max: 12,
     seconds: 0,
     count: 0,
-    dropAt: 3,
+    dropAt: 4,
   },
 
   droptable_explore: {

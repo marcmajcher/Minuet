@@ -14,6 +14,10 @@ Yeah, we're doing a generation/colony ship thing.
 
 ## TODO
 
+* implement storage closet
+* implement building tech
+* implement memory storage
+
 * save to localstorage
 * move string language to gamestate, import in printString
 * disallow unpause when game not started
