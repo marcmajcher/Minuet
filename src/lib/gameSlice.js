@@ -44,8 +44,10 @@ export const gameSlice = createSlice({
       } else {
         message = payload;
       }
-      state.logEntries.push(message);
-      console.log('[LOG]', message);
+      if (message) {
+        state.logEntries.push(message);
+        // console.log('[LOG]', message);
+      }
     },
     decant: (state) => {
       state.paused = false;

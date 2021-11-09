@@ -8,14 +8,16 @@ const defaultData = {
 
   cool_explore: {
     type: 'cooldown',
-    max: 1,
+    max: 12,
     seconds: 0,
+    count: 0,
+    dropAt: 3,
   },
 
   droptable_explore: {
     drop_biomass: 0.25,
-    drop_wire: .1,
-    drop_scrap: .15,
+    drop_wire: 0.15,
+    drop_scrap: 0.15,
   },
 
   drop_biomass: {
@@ -36,7 +38,7 @@ const defaultData = {
   drop_scrap: {
     resource: 'scrap',
     description: 'desc_scrap',
-    first: 'msg_biomass_discover',
+    first: 'msg_scrap_discover',
     min: 2,
     max: 10,
   },

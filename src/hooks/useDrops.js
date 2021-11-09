@@ -11,23 +11,33 @@ export default function useDrops(dropKey) {
 
   return function () {
     const dropMessages = [];
-    for (const dropItem in dropTable) {
-      if (Math.random() < dropTable[dropItem]) {
+
+    for (let dropItem in dropTable) {
+      const roll = Math.random();
+
+      if (roll < dropTable[dropItem]) {
         const item = data[dropItem];
+
+        if (item.limit && data[item.limit].amount <= 0) {
+          continue;
+        }
+
         if (item.first) {
           dispatch(log(item.first));
           dispatch(removeFirstResourceMessage(dropItem));
         } else {
           dropMessages.push(item.description);
-          let amount = rollBetween(item.min, item.max);
-          if (item.limit) {
-            amount = Math.min(amount, data[item.limit].amount);
-          }
-          dispatch(addResource({ resource: item.resource, amount }));
         }
-      }
 
-      return dropMessages.join(', ');
+        let amount = rollBetween(item.min, item.max);
+        if (item.limit) {
+          amount = Math.min(amount, data[item.limit].amount);
+        }
+        
+        dispatch(addResource({ resource: item.resource, amount }));
+      }
     }
+
+    return dropMessages;
   };
 }

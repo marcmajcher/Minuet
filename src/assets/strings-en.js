@@ -1,12 +1,15 @@
 const strings = {
+  and: 'and',
+  you_find: 'You find {items}',
+
   btn_clear: 'Clear',
   btn_decant: 'Decant',
   btn_explore: 'Explore',
   btn_save: 'Save',
 
-  desc_biomass: '',
-  desc_wire: '',
-  desc_scrap: '',
+  desc_biomass: 'some unrecognizable biological material',
+  desc_wire: 'a length of scaveneged wire',
+  desc_scrap: 'a few pieces of scrap metal',
   
   msg_no_resources: '[RESOURCES UNAVAILABLE]',
   msg_log_start: '[LOG] Begin Messages',

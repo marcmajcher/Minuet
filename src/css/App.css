@@ -119,4 +119,7 @@ footer {
 
 .log-entries > p {
   margin: 0;
+  padding-bottom: 3px;
+  margin-bottom: 3px;
+  border-bottom: 1px solid #ccc;
 }
