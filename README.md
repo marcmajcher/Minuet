@@ -17,7 +17,7 @@ Yeah, we're doing a generation/colony ship thing.
 * implement storage closet
 * implement building tech
 * implement memory/xp storage
-
+* label Racks etc
 * color code resources
 * save to localstorage
 * load from localstorage

@@ -10,7 +10,7 @@ const strings = {
   btn_save: 'Save',
 
   desc_biomass: 'some unrecognizable biological material',
-  desc_wire: 'a length of scaveneged wire',
+  desc_wire: 'a length of scavenged wire',
   desc_scrap: 'a few pieces of scrap metal',
 
   msg_no_resources: '<<UNAVAILABLE>>',
